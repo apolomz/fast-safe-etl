@@ -1,38 +1,38 @@
-# Proyecto Ciencia de Datos - Fast and Safe
+# Data Science Project - Fast and Safe
 
-## Integrantes
+## Team Members
 
-* Juan Sebastian Sierra- 202343656
-* Jhoan Sebastian Fernandez- 2222772
-* Luis Felipe Londoño- 2343105
-
----
-
-# Descripción del proyecto
-
-Este proyecto implementa un proceso ETL (Extract, Transform, Load) y una Bodega de Datos (Data Warehouse) para el proyecto del curso: **Fast and Safe**.
-
-A partir de una base de datos operacional exportada en formato SQL (`copia-BD.sql`), el sistema:
-
-1. Extrae la información relevante.
-2. Transforma los datos aplicando reglas de negocio.
-3. Construye dimensiones y tablas de hechos.
-4. Genera archivos CSV para análisis.
-5. Carga automáticamente la información en PostgreSQL.
+* Juan Sebastian Sierra - 202343656
+* Jhoan Sebastian Fernandez - 2222772
+* Luis Felipe Londoño - 2343105
 
 ---
 
-# Arquitectura
+# Project Description
 
-Base de Datos Operacional (SQL Dump)
+This project implements an ETL (Extract, Transform, Load) process and a Data Warehouse for the course project: **Fast and Safe**.
+
+Starting from an operational database exported in SQL format (`copia-BD.sql`), the system:
+
+1. Extracts the relevant information.
+2. Transforms the data by applying business rules.
+3. Builds dimensions and fact tables.
+4. Generates CSV files for analysis.
+5. Automatically loads the information into PostgreSQL.
+
+---
+
+# Architecture
+
+Operational Database (SQL Dump)
 
 ↓
 
-Extracción (Extract)
+Extraction (Extract)
 
 ↓
 
-Transformación (Transform)
+Transformation (Transform)
 
 ↓
 
@@ -48,7 +48,7 @@ Power BI
 
 ---
 
-# Tecnologías utilizadas
+# Technologies Used
 
 * Python 3.11+
 * Pandas
@@ -62,7 +62,7 @@ Power BI
 
 ---
 
-# Estructura del proyecto
+# Project Structure
 
 ```text
 proyecto_ciencia_de_datos/
@@ -91,16 +91,16 @@ proyecto_ciencia_de_datos/
 └── README.md
 ```
 
-# Instalación
+# Installation
 
-## 1. Clonar el repositorio
+## 1. Clone the repository
 
 ```bash
 git clone <https://github.com/Sebastian6174/Proyecto_Ciencia_de_Datos.git>
 cd proyecto_ciencia_de_datos
 ```
 
-## 2. Crear entorno virtual
+## 2. Create a virtual environment
 
 Windows:
 
@@ -116,7 +116,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-## 3. Instalar dependencias
+## 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -124,63 +124,63 @@ pip install -r requirements.txt
 
 ---
 
-### Configuración de PostgreSQL y pgAdmin
+### PostgreSQL and pgAdmin Configuration
 
-El proyecto utiliza Docker Compose para desplegar PostgreSQL y pgAdmin.
+The project uses Docker Compose to deploy PostgreSQL and pgAdmin.
 
-## Levantar los servicios
+## Start the services
 
-Ubicarse en la raíz del proyecto y ejecutar:
+Navigate to the project root and run:
 
 ```bash
 docker compose up -d
 ```
 
-Verificar que los contenedores estén ejecutándose:
+Verify that the containers are running:
 
 ```bash
 docker ps
 ```
 
-Se deben visualizar los contenedores:
+You should see the following containers:
 
 ```text
 ciencia_datos
 pgadmin4CD
 ```
 
-## Configuración utilizada
+## Configuration Used
 
 ### PostgreSQL
 
 ```text
 Host: localhost
-Puerto: 5432
-Usuario: postgres
-Contraseña: postgres
+Port: 5432
+User: postgres
+Password: postgres
 ```
 
 ### pgAdmin
 
-Acceder desde el navegador:
+Access from the browser:
 
 ```text
 http://localhost:8080
 ```
 
-Credenciales:
+Credentials:
 
 ```text
-Correo: admin@admin.com
-Contraseña: 12345
+Email: admin@admin.com
+Password: 12345
 ```
 
-## Registrar el servidor en pgAdmin
+## Register the server in pgAdmin
 
-Al ingresar por primera vez a pgAdmin:
+When logging into pgAdmin for the first time:
 
-1. Click derecho sobre "Servers".
-2. Seleccionar "Register → Server".
+1. Right-click on "Servers".
+2. Select "Register → Server".
 
 ### General
 
@@ -198,11 +198,11 @@ Username: postgres
 Password: postgres
 ```
 
-Guardar la configuración.
+Save the configuration.
 
-## Crear la base de datos
+## Create the database
 
-Dentro del servidor PostgreSQL crear la base de datos:
+Inside the PostgreSQL server, create the database:
 
 ```text
 fast_and_safe_dw
@@ -210,28 +210,28 @@ fast_and_safe_dw
 
 ---
 
-# Ejecución del proyecto
+# Running the Project
 
-Ejecutar:
+Run:
 
 ```bash
 python main.py
 ```
 
-El sistema realizará automáticamente:
+The system will automatically perform:
 
-* Extracción
-* Transformación
-* Construcción de dimensiones
-* Construcción de tablas de hechos
-* Generación de CSV
-* Carga a PostgreSQL
+* Extraction
+* Transformation
+* Dimension building
+* Fact table building
+* CSV generation
+* Loading into PostgreSQL
 
 ---
 
-# Tablas generadas
+# Generated Tables
 
-## Dimensiones
+## Dimensions
 
 * Dim_Ciudad
 * Dim_Cliente
@@ -243,41 +243,41 @@ El sistema realizará automáticamente:
 * Dim_Hora
 * Dim_Fecha
 
-## Hechos
+## Facts
 
 * Fact_Servicios
 * Fact_Novedades
 
 ---
 
-# Conexión desde Power BI
+# Connecting from Power BI
 
-Seleccionar:
+Select:
 
 ```text
-Obtener Datos
+Get Data
 ↓
 PostgreSQL Database
 ```
 
-Parámetros:
+Parameters:
 
 ```text
-Servidor: localhost
-Puerto: 5432
-Base de datos: fast_and_safe_dw
-Usuario: postgres
-Contraseña: postgres
+Server: localhost
+Port: 5432
+Database: fast_and_safe_dw
+User: postgres
+Password: postgres
 ```
 
-Importar las dimensiones y tablas de hechos para construir los dashboards analíticos.
+Import the dimensions and fact tables to build the analytical dashboards.
 
 ---
 
-# Resultado esperado
+# Expected Result
 
-Al finalizar la ejecución:
+At the end of execution:
 
-* Los archivos CSV quedan almacenados en `dw_data/`.
-* Las tablas del Data Warehouse quedan cargadas en PostgreSQL.
-* La base puede ser consultada desde pgAdmin y Power BI.
+* The CSV files are stored in `dw_data/`.
+* The Data Warehouse tables are loaded into PostgreSQL.
+* The database can be queried from pgAdmin and Power BI.
