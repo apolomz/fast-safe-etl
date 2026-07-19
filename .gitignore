@@ -1,0 +1,14 @@
+# Entornos virtuales
+.venv/
+venv/
+
+# Datos generados
+dw_data/
+data/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Docker / env (opcional)
+.env
